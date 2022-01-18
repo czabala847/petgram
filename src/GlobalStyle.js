@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
-  button: {
+  button {
     background: transparent;
     border: 0;
     outline: 0;
@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
-  #app {
+  #main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     overflow-x: hidden;
     min-height: 100vh;
