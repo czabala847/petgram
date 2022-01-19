@@ -22,6 +22,10 @@ const Img = styled.img`
   ${fadeIn()}
 `;
 
+const Article = styled.article`
+  min-height: 300px;
+`;
+
 const Button = styled.button`
   display: flex;
   align-items: center;
@@ -31,4 +35,4 @@ const Button = styled.button`
   }
 `;
 
-export { ImgWrapper, Img, Button };
+export { ImgWrapper, Img, Button, Article };

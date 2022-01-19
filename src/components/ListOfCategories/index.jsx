@@ -1,28 +1,48 @@
 import React from "react";
 import { Category } from "../Category";
+import { CategoryLoading } from "../Category/CategoryLoading";
+
 import { List, Item } from "./styles";
+import { useCategoriesData } from "./useCategoriesData";
 
 const ListOfCategories = () => {
-    const [categories, setCategories] = React.useState([]);
+    const [showFixed, setShowFixed] = React.useState(false);
+    const { categories, loading } = useCategoriesData();
 
     React.useEffect(() => {
-        (async function fetchCategories() {
-            const response = await fetch(
-                "https://petgram-server-edsf8xpy2.now.sh/categories"
-            );
-            const data = await response.json();
-            setCategories(data);
-        })();
-    }, []);
+        const onScroll = (e) => {
+            const newShowFixed = window.scrollY > 200;
+            showFixed != newShowFixed && setShowFixed(newShowFixed);
+        };
+
+        document.addEventListener("scroll", onScroll);
+
+        return () => document.removeEventListener("scroll", onScroll);
+    }, [showFixed]);
+
+    const renderList = (fixed) => {
+        return (
+            <List fixed={fixed}>
+                {loading
+                    ? [...Array(10)].map((e, i) => (
+                          <Item key={i}>
+                              <CategoryLoading />
+                          </Item>
+                      ))
+                    : categories.map((category) => (
+                          <Item key={category.id}>
+                              <Category {...category} />
+                          </Item>
+                      ))}
+            </List>
+        );
+    };
 
     return (
-        <List>
-            {categories.map((category) => (
-                <Item key={category.id}>
-                    <Category {...category} />
-                </Item>
-            ))}
-        </List>
+        <>
+            {renderList()}
+            {showFixed && renderList(true)}
+        </>
     );
 };
 
