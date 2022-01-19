@@ -1,27 +1,19 @@
 import React from "react";
 import { ImgWrapper, Img, Button, Article } from "./styles";
 
-import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import { useLocalStorage } from "./useLocalStorage";
+import { useNearScreen } from "./useNearScreen";
 
 const DEFAULT_IMG =
     "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60";
 
 const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMG }) => {
-    const articleRef = React.useRef(null);
-    const [show, setShow] = React.useState(false);
+    const key = `liked-${id}`;
+    const [liked, setLiked] = useLocalStorage(key, false);
+    const [show, articleRef] = useNearScreen();
 
-    React.useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const { isIntersecting } = entries[0];
-            if (isIntersecting) {
-                console.log("si");
-                setShow(true);
-                observer.disconnect();
-            }
-        });
-
-        observer.observe(articleRef.current);
-    }, [articleRef]);
+    const Icon = liked ? MdFavorite : MdFavoriteBorder;
 
     return (
         <Article ref={articleRef}>
@@ -37,8 +29,8 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMG }) => {
                         </ImgWrapper>
                     </a>
 
-                    <Button>
-                        <MdFavoriteBorder size={"32px"} />
+                    <Button onClick={() => setLiked(!liked)}>
+                        <Icon size={"32px"} />
                         {likes} likes
                     </Button>
                 </>
