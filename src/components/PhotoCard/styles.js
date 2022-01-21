@@ -37,13 +37,4 @@ const Article = styled.article`
   margin: 1rem 0;
 `;
 
-const Button = styled.button`
-  display: flex;
-  align-items: center;
-  padding-top: 8px;
-  & svg {
-    margin-right: 4px;
-  }
-`;
-
-export { ImgWrapper, Img, Button, Article, ImgLoading };
+export { ImgWrapper, Img, Article, ImgLoading };
