@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { fadeIn } from "../../styles/animation";
+import { loadingSkeleton } from "../../styles/animation";
 
 const ImgWrapper = styled.div`
   border-radius: 10px;
@@ -22,8 +23,18 @@ const Img = styled.img`
   ${fadeIn()}
 `;
 
+const ImgLoading = styled.div`
+  box-shadow: 0 10px 14px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  ${loadingSkeleton()}
+`;
+
 const Article = styled.article`
   min-height: 300px;
+  margin: 1rem 0;
 `;
 
 const Button = styled.button`
@@ -35,4 +46,4 @@ const Button = styled.button`
   }
 `;
 
-export { ImgWrapper, Img, Button, Article };
+export { ImgWrapper, Img, Button, Article, ImgLoading };

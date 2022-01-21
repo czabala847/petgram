@@ -1,11 +1,19 @@
 import React from "react";
-import { PhotoCard } from "../PhotoCard";
 
-const ListOfPhotoCards = () => {
+import { PhotoCardLoading } from "../PhotoCard/PhotoCardLoading";
+import { PhotoCard } from "../PhotoCard";
+import { useGetPhotos } from "./useGetPhotos";
+
+const ListOfPhotoCards = ({ category_id }) => {
+    const { loading, error, data } = useGetPhotos(category_id);
+
+    if (loading) return <PhotoCardLoading />;
+    if (error) return <p>Error...</p>;
+
     return (
         <ul>
-            {[1, 2, 3, 4, 5].map((id) => (
-                <PhotoCard key={id} id={id} />
+            {data.photos.map((photo) => (
+                <PhotoCard key={photo.id} id={photo.id} {...photo} />
             ))}
         </ul>
     );
