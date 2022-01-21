@@ -19,7 +19,7 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMG }) => {
         <Article ref={articleRef}>
             {show && (
                 <>
-                    <a href={`/detail/${id}`}>
+                    <a href={`/?detail=${id}`}>
                         <ImgWrapper>
                             <Img
                                 loading="lazy"
