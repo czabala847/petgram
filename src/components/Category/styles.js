@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
 import { loadingSkeleton } from "../../styles/animation";
+import { Link as LinkRouter } from "react-router-dom";
 
-const Anchor = styled.a`
+const Link = styled(LinkRouter)`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -30,4 +31,4 @@ const ImageLoading = styled.div`
   ${loadingSkeleton()}
 `;
 
-export { Anchor, Image, ImageLoading };
+export { Link, Image, ImageLoading };

@@ -1,12 +1,12 @@
 import React from "react";
-import { Anchor, ImageLoading } from "./styles";
+import { Link, ImageLoading } from "./styles";
 
 const CategoryLoading = () => {
     return (
-        <Anchor>
+        <Link to="#">
             <ImageLoading />
             {/* <TextLoading /> */}
-        </Anchor>
+        </Link>
     );
 };
 
