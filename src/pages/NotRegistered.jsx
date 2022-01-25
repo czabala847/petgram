@@ -1,13 +1,15 @@
 import React from "react";
 import { Context } from "../Context";
+import { UseForm } from "../components/UseForm";
 
 const NotRegistered = () => {
     const { activeAuth } = React.useContext(Context);
 
     return (
-        <form onSubmit={activeAuth}>
-            <button>Iniciar sesión</button>
-        </form>
+        <>
+            <UseForm onSubmit={activeAuth} title={"Iniciar Sesión"} />
+            <UseForm onSubmit={activeAuth} title={"Registraté"} />
+        </>
     );
 };
 

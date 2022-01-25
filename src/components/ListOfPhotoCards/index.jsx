@@ -2,7 +2,7 @@ import React from "react";
 
 import { PhotoCardLoading } from "../PhotoCard/PhotoCardLoading";
 import { PhotoCard } from "../PhotoCard";
-import { useGetPhotos } from "./useGetPhotos";
+import { useGetPhotos } from "../../hooks/useGetPhotos";
 
 const ListOfPhotoCards = ({ category_id }) => {
     const { loading, error, data } = useGetPhotos(category_id);

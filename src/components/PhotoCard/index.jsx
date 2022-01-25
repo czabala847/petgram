@@ -4,9 +4,9 @@ import { ImgWrapper, Img, Article } from "./styles";
 
 import { FavButton } from "../FavButton";
 
-import { useLocalStorage } from "./useLocalStorage";
-import { useNearScreen } from "./useNearScreen";
-import { useToggleLike } from "./useToggleLike";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useNearScreen } from "../../hooks/useNearScreen";
+import { useToggleLike } from "../../hooks/useToggleLike";
 
 const DEFAULT_IMG =
     "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60";

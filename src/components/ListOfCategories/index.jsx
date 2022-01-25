@@ -3,7 +3,7 @@ import { Category } from "../Category";
 import { CategoryLoading } from "../Category/CategoryLoading";
 
 import { List, Item } from "./styles";
-import { useCategoriesData } from "./useCategoriesData";
+import { useCategoriesData } from "../../hooks/useCategoriesData";
 
 const ListOfCategories = () => {
     const [showFixed, setShowFixed] = React.useState(false);
