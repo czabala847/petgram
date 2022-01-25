@@ -6,11 +6,14 @@ const Form = styled.form`
 
 const Input = styled.input`
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 3px;
   margin-bottom: 15px;
   padding: 8px 4px;
   display: block;
   width: 100%;
+  &[disabled] {
+    opacity: 0.3;
+  }
 `;
 
 const Button = styled.button`
@@ -19,7 +22,7 @@ const Button = styled.button`
     rgba(219, 0, 0, 1) 0%,
     rgba(0, 0, 219, 1) 100%
   );
-  border-radius: 5px;
+  border-radius: 3px;
   color: #fff;
   height: 32px;
   display: block;
@@ -27,6 +30,10 @@ const Button = styled.button`
 
   &:hover {
     cursor: pointer;
+  }
+
+  &[disabled] {
+    opacity: 0.3;
   }
 `;
 
@@ -39,4 +46,13 @@ const Title = styled.h2`
   margin-bottom: 1.5rem;
 `;
 
-export { Form, Input, Button, Container, Title };
+const ErrorContainer = styled.div`
+  background-color: rgba(219, 0, 0, 0.7);
+  color: white;
+  margin: 0.5rem 0;
+  padding: 0.3rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+`;
+
+export { Form, Input, Button, Container, Title, ErrorContainer };
