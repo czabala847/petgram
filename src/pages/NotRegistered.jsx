@@ -3,6 +3,7 @@ import { Context } from "../Context";
 import { UseForm } from "../components/UseForm";
 import { useRegisterMutation } from "../hooks/useRegisterMutation";
 import { useLoginMutation } from "../hooks/useLoginMutation";
+import { HelmetContainer } from "../components/HelmetContainer";
 
 const NotRegistered = () => {
     const { activeAuth } = React.useContext(Context);
@@ -40,7 +41,7 @@ const NotRegistered = () => {
     const errorLogMs = errorLog && "El correo o contraseña son incorrectos.";
 
     return (
-        <>
+        <HelmetContainer title={"Iniciar sesión"}>
             <UseForm
                 disabled={loadingLog}
                 error={errorLogMs}
@@ -53,7 +54,7 @@ const NotRegistered = () => {
                 onSubmit={handleRegister}
                 title={"Registraté"}
             />
-        </>
+        </HelmetContainer>
     );
 };
 
