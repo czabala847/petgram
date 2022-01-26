@@ -16,27 +16,6 @@ const Input = styled.input`
   }
 `;
 
-const Button = styled.button`
-  background: linear-gradient(
-    90deg,
-    rgba(219, 0, 0, 1) 0%,
-    rgba(0, 0, 219, 1) 100%
-  );
-  border-radius: 3px;
-  color: #fff;
-  height: 32px;
-  display: block;
-  width: 100%;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &[disabled] {
-    opacity: 0.3;
-  }
-`;
-
 const Container = styled.section`
   padding: 0 1rem;
   text-align: center;
@@ -55,4 +34,4 @@ const ErrorContainer = styled.div`
   font-size: 0.8rem;
 `;
 
-export { Form, Input, Button, Container, Title, ErrorContainer };
+export { Form, Input, Container, Title, ErrorContainer };

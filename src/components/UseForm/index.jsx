@@ -1,14 +1,9 @@
 import React from "react";
 import { useInputValue } from "../../hooks/useInputValue";
-import {
-    Form,
-    Input,
-    Button,
-    Container,
-    Title,
-    ErrorContainer,
-} from "./styles";
+import { Form, Input, Container, Title, ErrorContainer } from "./styles";
 import { MdPets } from "react-icons/md";
+
+import { ButtonSubmit } from "../ButtonSubmit";
 
 const UseForm = ({ disabled, error, onSubmit, title }) => {
     const email = useInputValue("");
@@ -37,7 +32,7 @@ const UseForm = ({ disabled, error, onSubmit, title }) => {
                     placeholder="Password"
                     {...password}
                 />
-                <Button disabled={disabled}>{title}</Button>
+                <ButtonSubmit disabled={disabled} text={title}></ButtonSubmit>
                 {error && <ErrorContainer>{error}</ErrorContainer>}
             </Form>
         </Container>
