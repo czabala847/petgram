@@ -4,7 +4,9 @@
   "description": "Curso avanzado de react en platzi",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "start:dev": "npx serve dist -s",
+    "serve:dev":"npm run dev && npm run start:dev",
     "start": "webpack serve --config webpack.config.js"
   },
   "repository": {

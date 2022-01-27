@@ -7,9 +7,7 @@ import { Detail } from "./pages/Detail";
 import { Favs } from "./pages/Favs";
 import { User } from "./pages/User";
 import { NotRegistered } from "./pages/NotRegistered";
-
 import { Layout } from "./containers/Layout";
-
 import { Context } from "./Context";
 
 const App = () => {
