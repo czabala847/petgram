@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const WebpackPwaManifest = require("webpack-pwa-manifest");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
 
 module.exports = {
   entry: "./src/index.js",
@@ -36,21 +36,21 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/index.html",
     }),
-    // new WebpackPwaManifest({
-    //   name: "Petgram - Tu app de fotos de mascotas",
-    //   short_name: "Petgram 🐱",
-    //   description:
-    //     "Con Petgran puedes encontrar fotos de animales domésticos muy facilmente.",
-    //   background_color: "#ffffff",
-    //   theme_color: "#b1a",
-    //   crossorigin: "use-credentials", //can be null, use-credentials or anonymous
-    //   icons: [
-    //     {
-    //       src: path.resolve("src/assets/icon.png"),
-    //       sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-    //     },
-    //   ],
-    // }),
+    new WebpackPwaManifest({
+      name: "Petgram - Tu app de fotos de mascotas",
+      short_name: "Petgram 🐱",
+      description:
+        "Con Petgran puedes encontrar fotos de animales domésticos muy facilmente.",
+      background_color: "#ffffff",
+      theme_color: "#b1a",
+      crossorigin: "use-credentials", //can be null, use-credentials or anonymous
+      icons: [
+        {
+          src: path.resolve("src/assets/icon.png"),
+          sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+        },
+      ],
+    }),
   ],
   devServer: {
     static: path.join(__dirname, "dist"),
